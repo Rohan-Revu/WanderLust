@@ -80,6 +80,10 @@ app.use("/listings", lisitngsRouter);
 app.use("/listings/:id/reviews", reviewsRouter);
 app.use("/", userRouter);
 
+app.get("/", (req, res) => {
+  res.redirect("/listings");
+});
+
 //no match
 app.all("/*splat", (req, res, next) => {
   next(new expressError(404, "Page Not Found"));
